@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.fullsekurity.deptofeducation.R
 import com.fullsekurity.deptofeducation.activity.Callbacks
 import com.fullsekurity.deptofeducation.activity.MainActivity
-import com.fullsekurity.deptofeducation.databinding.MeaningsFragmentBinding
+import com.fullsekurity.deptofeducation.databinding.SchoolsDataFragmentBinding
 import com.fullsekurity.deptofeducation.ui.UIViewModel
 import com.fullsekurity.deptofeducation.utils.Constants
 import com.fullsekurity.deptofeducation.utils.DaggerViewModelDependencyInjector
@@ -20,15 +20,15 @@ import com.fullsekurity.deptofeducation.utils.ViewModelInjectorModule
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class MeaningsFragment : Fragment(), Callbacks {
+class SchoolsDataFragment : Fragment(), Callbacks {
 
-    private lateinit var meaningsListViewModel: MeaningsListViewModel
-    private lateinit var binding: MeaningsFragmentBinding
+    private lateinit var meaningsListViewModel: SchoolsDataListViewModel
+    private lateinit var binding: SchoolsDataFragmentBinding
     private lateinit var mainActivity: MainActivity
 
     companion object {
-        fun newInstance(): MeaningsFragment {
-            return MeaningsFragment()
+        fun newInstance(): SchoolsDataFragment {
+            return SchoolsDataFragment()
         }
     }
 
@@ -50,9 +50,9 @@ class MeaningsFragment : Fragment(), Callbacks {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = DataBindingUtil.inflate<ViewDataBinding>(inflater, R.layout.meanings_fragment, container, false) as MeaningsFragmentBinding
+        binding = DataBindingUtil.inflate<ViewDataBinding>(inflater, R.layout.schools_data_fragment, container, false) as SchoolsDataFragmentBinding
         binding.lifecycleOwner = this
-        meaningsListViewModel = ViewModelProvider(this, MeaningsListViewModelFactory(this)).get(MeaningsListViewModel::class.java)
+        meaningsListViewModel = ViewModelProvider(this, SchoolsDataListViewModelFactory(this)).get(SchoolsDataListViewModel::class.java)
         binding.meaningsListViewModel = meaningsListViewModel
         binding.uiViewModel = uiViewModel
         uiViewModel.currentTheme = (activity as MainActivity).currentTheme
@@ -81,7 +81,7 @@ class MeaningsFragment : Fragment(), Callbacks {
         return binding.root
     }
 
-    override fun fetchmeaningsListViewModel() : MeaningsListViewModel? {
+    override fun fetchmeaningsListViewModel() : SchoolsDataListViewModel? {
         return meaningsListViewModel
     }
 

@@ -63,11 +63,11 @@ class UIDataClass(
     val buttonTextColor: String,                          // Button text color
     val buttonTextSize: String,                           // Button text size
 
-    val meaningsItemTextColor: String,                    // Meaning item text color
-    val meaningsItemTextSize: String,                     // Meaning item text size
-    val wordItemTextColor: String,                        // Meaning word item text color
-    val wordItemTextSize: String,                         // Meaning word item text size
-    val definitionItemTextColor: String,                  // Meaning definition item text color
+    val meaningsItemTextColor: String,                    // SchoolData item text color
+    val meaningsItemTextSize: String,                     // SchoolData item text size
+    val wordItemTextColor: String,                        // SchoolData word item text color
+    val wordItemTextSize: String,                         // SchoolData word item text size
+    val definitionItemTextColor: String,                  // SchoolData definition item text color
 
     val largeErrorTextColor: String,                      // Standard large error text color
     val largeErrorTextSize: String,                       // Standard large error text size
@@ -92,8 +92,8 @@ class UIDataClass(
     val productIdTextColor: String,                       // Product grid id label text color
     val productIdTextSize: String,                        // Product grid id label text size
 
-    val incorrectMeaningTextColor: String,                // Reassociate donor label text color
-    val incorrectMeaningTextSize: String,                 // Reassociate donor label text size
+    val incorrectSchoolDataTextColor: String,                // Reassociate donor label text color
+    val incorrectSchoolDataTextSize: String,                 // Reassociate donor label text size
 
     val dropdownTextColor: String,                        // aboRh/branch dropdown label text color
     val dropdownTextSize: String,                         // aboRh/branch dropdown label text size

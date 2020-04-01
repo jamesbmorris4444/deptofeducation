@@ -11,7 +11,8 @@ import com.fullsekurity.deptofeducation.R
 import com.fullsekurity.deptofeducation.activity.Callbacks
 import com.fullsekurity.deptofeducation.recyclerview.RecyclerViewViewModel
 import com.fullsekurity.deptofeducation.repository.Repository
-import com.fullsekurity.deptofeducation.repository.storage.Meaning
+import com.fullsekurity.deptofeducation.repository.storage.SchoolField
+import com.fullsekurity.deptofeducation.repository.storage.SchoolsData
 import com.fullsekurity.deptofeducation.ui.UIViewModel
 import com.fullsekurity.deptofeducation.utils.DaggerViewModelDependencyInjector
 import com.fullsekurity.deptofeducation.utils.Utils
@@ -20,15 +21,15 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import javax.inject.Inject
 
-class MeaningsListViewModelFactory(private val callbacks: Callbacks) : ViewModelProvider.Factory {
+class SchoolsDataListViewModelFactory(private val callbacks: Callbacks) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return MeaningsListViewModel(callbacks) as T
+        return SchoolsDataListViewModel(callbacks) as T
     }
 }
 
-class MeaningsListViewModel(private val callbacks: Callbacks) : RecyclerViewViewModel(callbacks.fetchActivity().application) {
+class SchoolsDataListViewModel(private val callbacks: Callbacks) : RecyclerViewViewModel(callbacks.fetchActivity().application) {
 
-    override var adapter: MeaningsAdapter = MeaningsAdapter(callbacks)
+    override var adapter: SchoolsDataAdapter = SchoolsDataAdapter(callbacks)
     override val itemDecorator: RecyclerView.ItemDecoration? = null
     val listIsVisible: ObservableField<Boolean> = ObservableField(true)
     val submitVisible: ObservableField<Int> = ObservableField(View.GONE)
@@ -91,11 +92,11 @@ class MeaningsListViewModel(private val callbacks: Callbacks) : RecyclerViewView
             Utils.hideKeyboard(view)
             val progressBar = callbacks.fetchActivity().getMainProgressBar()
             progressBar.visibility = View.VISIBLE
-            repository.getUrbanDictionaryMeanings(enteredText, this::showMeanings)
+            repository.getUrbanDictionarySchoolsData(enteredText, this::showSchoolsData)
         }
     }
 
-    private fun showMeanings(meaningsList: List<Meaning>?) {
+    private fun showSchoolsData(meaningsList: List<SchoolField>?) {
         val progressBar = callbacks.fetchActivity().getMainProgressBar()
         progressBar.visibility = View.GONE
         if (meaningsList == null) {

@@ -2,9 +2,9 @@ package com.fullsekurity.deptofeducation.utils
 
 import androidx.lifecycle.ViewModelProvider
 import com.fullsekurity.deptofeducation.activity.MainActivity
-import com.fullsekurity.deptofeducation.meanings.MeaningsAdapter
-import com.fullsekurity.deptofeducation.meanings.MeaningsFragment
-import com.fullsekurity.deptofeducation.meanings.MeaningsListViewModel
+import com.fullsekurity.deptofeducation.meanings.SchoolsDataAdapter
+import com.fullsekurity.deptofeducation.meanings.SchoolsDataFragment
+import com.fullsekurity.deptofeducation.meanings.SchoolsDataListViewModel
 import com.fullsekurity.deptofeducation.modal.StandardModal
 import com.fullsekurity.deptofeducation.repository.Repository
 import com.fullsekurity.deptofeducation.ui.UIViewModel
@@ -24,11 +24,11 @@ interface MapperDependencyInjector {
 @Singleton
 @Component(modules = [ViewModelInjectorModule::class])
 interface ViewModelDependencyInjector {
-    fun inject(fragment: MeaningsFragment)
+    fun inject(fragment: SchoolsDataFragment)
     fun inject(modal: StandardModal)
-    fun inject(viewModel: MeaningsListViewModel)
+    fun inject(viewModel: SchoolsDataListViewModel)
     fun inject(activity: MainActivity)
-    fun inject(adapter: MeaningsAdapter)
+    fun inject(adapter: SchoolsDataAdapter)
 }
 
 @Module

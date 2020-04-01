@@ -23,8 +23,8 @@ import com.airbnb.lottie.LottieDrawable
 import com.fullsekurity.deptofeducation.R
 import com.fullsekurity.deptofeducation.databinding.ActivityMainBinding
 import com.fullsekurity.deptofeducation.logger.LogUtils
-import com.fullsekurity.deptofeducation.meanings.MeaningsFragment
-import com.fullsekurity.deptofeducation.meanings.MeaningsListViewModel
+import com.fullsekurity.deptofeducation.meanings.SchoolsDataFragment
+import com.fullsekurity.deptofeducation.meanings.SchoolsDataListViewModel
 import com.fullsekurity.deptofeducation.repository.Repository
 import com.fullsekurity.deptofeducation.services.LongRunningService
 import com.fullsekurity.deptofeducation.services.ServiceCallbacks
@@ -150,15 +150,15 @@ class MainActivity : AppCompatActivity(), Callbacks, ServiceCallbacks {
 
     private fun loadInitialFragment() {
         if (supportFragmentManager.findFragmentByTag(ROOT_FRAGMENT_TAG) == null) {
-            loadMeaningsFragment()
+            loadSchoolsDataFragment()
         }
     }
 
-    private fun loadMeaningsFragment() {
+    private fun loadSchoolsDataFragment() {
         supportFragmentManager
             .beginTransaction()
             .setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left)
-            .replace(R.id.main_activity_container, MeaningsFragment.newInstance(), ROOT_FRAGMENT_TAG)
+            .replace(R.id.main_activity_container, SchoolsDataFragment.newInstance(), ROOT_FRAGMENT_TAG)
             .commitAllowingStateLoss()
     }
 
@@ -235,6 +235,6 @@ class MainActivity : AppCompatActivity(), Callbacks, ServiceCallbacks {
         return activityMainBinding.root
     }
 
-    override fun fetchmeaningsListViewModel() : MeaningsListViewModel? { return null }
+    override fun fetchmeaningsListViewModel() : SchoolsDataListViewModel? { return null }
 
 }

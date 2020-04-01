@@ -3,7 +3,7 @@ package com.fullsekurity.deptofeducation.utils
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import com.fullsekurity.deptofeducation.repository.storage.Meaning
+import com.fullsekurity.deptofeducation.repository.storage.SchoolsData
 
 class Utils {
 
@@ -20,11 +20,11 @@ class Utils {
             inputManager.showSoftInput(view, InputMethodManager.SHOW_FORCED)
         }
 
-        fun donorComparisonByThumbsUp(meaning: Meaning): Int {
+        fun donorComparisonByThumbsUp(meaning: SchoolsData): Int {
             return 10
         }
 
-        fun donorComparisonByThumbsDown(meaning: Meaning): Int {
+        fun donorComparisonByThumbsDown(meaning: SchoolsData): Int {
             return 20
         }
 

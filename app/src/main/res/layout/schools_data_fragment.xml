@@ -11,7 +11,7 @@
 
         <variable
             name="meaningsListViewModel"
-            type="com.fullsekurity.deptofeducation.meanings.MeaningsListViewModel" />
+            type="com.fullsekurity.deptofeducation.meanings.SchoolsDataListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -90,7 +90,7 @@
 
         <!-- End Submit Button -->
 
-        <!-- Start Meaning List -->
+        <!-- Start SchoolData List -->
 
         <LinearLayout
                 android:id="@+id/top_divider"
@@ -131,7 +131,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
 
-        <!-- End Meaning List -->
+        <!-- End SchoolData List -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
