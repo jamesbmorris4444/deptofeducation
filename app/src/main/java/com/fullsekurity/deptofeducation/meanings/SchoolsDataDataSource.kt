@@ -31,7 +31,7 @@ class SchoolsDataDataSource(private val callbacks: Callbacks) : PageKeyedDataSou
         disposable = apiInterface.getSchoolsData(1, Constants.NEWSFEED_API_KEY)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
-            .timeout(15L, TimeUnit.SECONDS)
+            .timeout(60L, TimeUnit.SECONDS)
             .subscribe({ meaningsResponse ->
                 disposable?.dispose()
                 val progressBar = callbacks.fetchActivity().getMainProgressBar()
@@ -58,7 +58,7 @@ class SchoolsDataDataSource(private val callbacks: Callbacks) : PageKeyedDataSou
         disposable = apiInterface.getSchoolsData(params.key, Constants.NEWSFEED_API_KEY)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
-            .timeout(15L, TimeUnit.SECONDS)
+            .timeout(60L, TimeUnit.SECONDS)
             .subscribe({ meaningsResponse ->
                 disposable?.dispose()
                 val progressBar = callbacks.fetchActivity().getMainProgressBar()
