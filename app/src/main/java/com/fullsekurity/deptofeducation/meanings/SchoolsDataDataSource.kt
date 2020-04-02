@@ -1,10 +1,7 @@
 package com.fullsekurity.deptofeducation.meanings
 
-import android.app.SearchManager.QUERY
 import android.view.View
-import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
-import androidx.paging.PagedList
 import com.fullsekurity.deptofeducation.R
 import com.fullsekurity.deptofeducation.activity.Callbacks
 import com.fullsekurity.deptofeducation.activity.MainActivity
@@ -23,8 +20,13 @@ import java.util.concurrent.TimeUnit
 class SchoolsDataDataSource(private val callbacks: Callbacks) : PageKeyedDataSource<Int, SchoolField?>() {
 
     private val apiInterface: APIInterface = APIClient.client
+    private var totalRecords: Int = 0
 
     override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, SchoolField?>) {
+        callbacks.fetchActivity().runOnUiThread {
+            val progressBar = callbacks.fetchActivity().getMainProgressBar()
+            progressBar.visibility = View.VISIBLE
+        }
         var disposable: Disposable? = null
         disposable = apiInterface.getSchoolsData(1, Constants.NEWSFEED_API_KEY)
             .observeOn(AndroidSchedulers.mainThread())
@@ -35,7 +37,7 @@ class SchoolsDataDataSource(private val callbacks: Callbacks) : PageKeyedDataSou
                 val progressBar = callbacks.fetchActivity().getMainProgressBar()
                 progressBar.visibility = View.GONE
                 callback.onResult(meaningsResponse.results, null, 2)
-//                LogUtils.D("JIMX", LogUtils.FilterTags.withTags(LogUtils.TagFilter.API), String.format("$$$$$$$$$$$$$$$$$$$$$$*=%d", meaningsResponse.metaData.total))
+                totalRecords = meaningsResponse.metaData.total
             },
             { throwable ->
                 disposable?.dispose()
@@ -48,6 +50,10 @@ class SchoolsDataDataSource(private val callbacks: Callbacks) : PageKeyedDataSou
     override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, SchoolField?>) { }
 
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, SchoolField?>) {
+        callbacks.fetchActivity().runOnUiThread {
+            val progressBar = callbacks.fetchActivity().getMainProgressBar()
+            progressBar.visibility = View.VISIBLE
+        }
         var disposable: Disposable? = null
         disposable = apiInterface.getSchoolsData(params.key, Constants.NEWSFEED_API_KEY)
             .observeOn(AndroidSchedulers.mainThread())
@@ -57,8 +63,8 @@ class SchoolsDataDataSource(private val callbacks: Callbacks) : PageKeyedDataSou
                 disposable?.dispose()
                 val progressBar = callbacks.fetchActivity().getMainProgressBar()
                 progressBar.visibility = View.GONE
-                //val nextKey: Int? = if (params.key == meaningsResponse.metaData.total) null else params.key + 1
-                callback.onResult(meaningsResponse.results, params.key + 1)
+                val nextKey: Int? = if (params.key == totalRecords) null else params.key + 1
+                callback.onResult(meaningsResponse.results, nextKey)
             },
             { throwable ->
                 disposable?.dispose()

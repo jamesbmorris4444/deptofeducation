@@ -6,9 +6,10 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class SchoolResponse(
+data class TopLevelResponse(
 
-    @SerializedName(value = "metadata") var metaData: MetaData
+    @SerializedName(value = "metadata") var metaData: MetaData,
+    @SerializedName(value = "results") var results: List<SchoolField>
 
 ) : Parcelable
 
