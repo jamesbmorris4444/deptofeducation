@@ -4,18 +4,13 @@ import com.fullsekurity.deptofeducation.repository.storage.SchoolsData
 
 object Constants {
 
-    const val URBANDICT_ARRAY_DATA_TAG = "articles"
+    const val EDUC_DEPT_ARRAY_DATA_TAG = "educ dept"
     const val ROOT_FRAGMENT_TAG = "root fragment"
-    val URBANDICT_LIST_CLASS_TYPE = (ArrayList<SchoolsData>()).javaClass
-
-    //  https://newsapi.org/v2/top-headlines?country=us&apiKey=[API_KEY]
-    const val URBANDICT_BASE_URL = "https://api.data.gov/ed/collegescorecard/v1/"
-    const val URBANDICT_RAPID_API_HOST = "x-rapidapi-host: mashape-community-urban-dictionary.p.rapidapi.com"
-    const val URBANDICT_RAPID_API_KEY = "x-rapidapi-key: f674a66b81msh663e5810b0cdd7ep162635jsnb30c4b837dd9"
-    const val NEWSFEED_COUNTRY = "country"
+    val EDUC_DEPT_LIST_CLASS_TYPE = (ArrayList<SchoolsData>()).javaClass
+    const val SCHOOLS_DATA_BASE_URL = "https://api.data.gov/ed/collegescorecard/v1/"
     const val PAGE_NUMBER = "page"
-    const val NEWSFEED_KEY = "api_key"
-    const val NEWSFEED_API_KEY = "a32gPmkzRVFctaponTspoNYYqSYkIrZCcd1dkbgx"
+    const val EDUC_DEPT_KEY = "api_key"
+    const val EDUC_DEPT_API_KEY = "a32gPmkzRVFctaponTspoNYYqSYkIrZCcd1dkbgx"
     const val STANDARD_LEFT_AND_RIGHT_MARGIN = 20f
     const val STANDARD_EDIT_TEXT_SMALL_MARGIN = 10f
     const val STANDARD_EDIT_TEXT_HEIGHT = 60f
@@ -23,7 +18,6 @@ object Constants {
     const val STANDARD_BUTTON_HEIGHT = 50f
     const val STANDARD_GRID_HEIGHT = 120f
     const val EDIT_TEXT_TO_BUTTON_RATIO = 3  // 3:1
-    const val URBANDICT_TITLE = "NewsAPI.org Results"
-
+    const val SCHOOLS_DATA_TITLE = "Dept of Education Schools Result"
 
 }

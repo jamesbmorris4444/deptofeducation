@@ -1,4 +1,4 @@
-package com.fullsekurity.deptofeducation.meanings
+package com.fullsekurity.deptofeducation.schools
 
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -12,7 +12,6 @@ import com.fullsekurity.deptofeducation.databinding.SchoolsDataListItemBinding
 import com.fullsekurity.deptofeducation.recyclerview.RecyclerViewFilterAdapter
 import com.fullsekurity.deptofeducation.repository.storage.DIFF_CALLBACK
 import com.fullsekurity.deptofeducation.repository.storage.SchoolField
-import com.fullsekurity.deptofeducation.repository.storage.SchoolsData
 import com.fullsekurity.deptofeducation.ui.UIViewModel
 import com.fullsekurity.deptofeducation.utils.DaggerViewModelDependencyInjector
 import com.fullsekurity.deptofeducation.utils.ViewModelInjectorModule

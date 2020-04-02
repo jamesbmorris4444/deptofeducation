@@ -1,4 +1,4 @@
-package com.fullsekurity.deptofeducation.meanings
+package com.fullsekurity.deptofeducation.schools
 
 import android.content.Context
 import android.os.Bundle
@@ -48,7 +48,7 @@ class SchoolsDataFragment : Fragment(), Callbacks {
 
     override fun onResume() {
         super.onResume()
-        (activity as MainActivity).toolbar.title = Constants.URBANDICT_TITLE
+        (activity as MainActivity).toolbar.title = Constants.SCHOOLS_DATA_TITLE
         meaningsListViewModel.initialize(binding.root)
         meaningsListViewModel.schoolsLiveData?.observe(this, Observer<PagedList<SchoolField>> { pagedList ->
             meaningsListViewModel.adapter.submitList(pagedList)

@@ -1,11 +1,9 @@
-package com.fullsekurity.deptofeducation.meanings
+package com.fullsekurity.deptofeducation.schools
 
 import android.app.Application
 import android.view.View
-import androidx.arch.core.util.Function
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.paging.LivePagedListBuilder
@@ -114,7 +112,7 @@ class SchoolsDataListViewModel(private val callbacks: Callbacks) : RecyclerViewV
 //            Utils.hideKeyboard(view)
 //            val progressBar = callbacks.fetchActivity().getMainProgressBar()
 //            progressBar.visibility = View.VISIBLE
-//            repository.getUrbanDictionarySchoolsData(enteredText, this::showSchoolsData)
+//            repository.getSchoolsData(enteredText, this::showSchoolsData)
 //        }
 //    }
 //

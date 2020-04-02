@@ -8,7 +8,7 @@
                 type="com.fullsekurity.deptofeducation.ui.UIViewModel" />
         <variable
                 name="meaningsItemViewModel"
-                type="com.fullsekurity.deptofeducation.meanings.SchoolsDataItemViewModel" />
+                type="com.fullsekurity.deptofeducation.schools.SchoolsDataItemViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,9 +18,9 @@
 
         <android.widget.TextView
             android:id="@+id/name"
-            android:layout_width="240dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="@{meaningsItemViewModel.name}"
             app:text_font="@{uiViewModel.wordItemTextTypeface}"
             app:text_color="@{uiViewModel.wordItemTextColor}"
@@ -28,61 +28,72 @@
             app:layout_marginLeft="@{safeUnbox(uiViewModel.standardLeftAndRightMargin)}"
             app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/city"
+            app:layout_constraintBottom_toTopOf="@+id/city_state_zip"
             app:layout_constraintLeft_toLeftOf="parent" />
 
         <android.widget.TextView
-            android:id="@+id/city"
-            android:layout_width="240dp"
+            android:id="@+id/city_state_zip"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{meaningsItemViewModel.city}"
+            android:text="@{meaningsItemViewModel.cityStateZip}"
             app:text_font="@{uiViewModel.meaningsItemTextTypeface}"
             app:text_color="@{uiViewModel.definitionItemTextColor}"
             app:text_size="@{safeUnbox(uiViewModel.meaningsItemTextSize)}"
             app:layout_marginLeft="@{safeUnbox(uiViewModel.standardLeftAndRightMargin)}"
             app:layout_constraintTop_toBottomOf="@+id/name"
-            app:layout_constraintBottom_toTopOf="@+id/state"
-            app:layout_constraintLeft_toLeftOf="parent" />
-
-        <android.widget.TextView
-            android:id="@+id/state"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:text="@{meaningsItemViewModel.state}"
-            app:text_font="@{uiViewModel.meaningsItemTextTypeface}"
-            app:text_color="@{uiViewModel.meaningsItemTextColor}"
-            app:text_size="@{safeUnbox(uiViewModel.meaningsItemTextSize)}"
-            app:layout_marginLeft="@{safeUnbox(uiViewModel.standardLeftAndRightMargin)}"
-            app:layout_constraintTop_toBottomOf="@+id/city"
-            app:layout_constraintBottom_toBottomOf="@+id/zip"
-            app:layout_constraintLeft_toLeftOf="parent" />
-
-        <android.widget.TextView
-            android:id="@+id/zip"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@{meaningsItemViewModel.zip}"
-            app:text_font="@{uiViewModel.wordItemTextTypeface}"
-            app:text_color="@{uiViewModel.wordItemTextColor}"
-            app:text_size="@{safeUnbox(uiViewModel.wordItemTextSize)}"
-            app:layout_marginLeft="@{safeUnbox(uiViewModel.standardLeftAndRightMargin)}"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:layout_constraintTop_toBottomOf="@+id/state"
-            app:layout_constraintBottom_toBottomOf="@+id/school_url"
+            app:layout_constraintBottom_toTopOf="@+id/school_url"
             app:layout_constraintLeft_toLeftOf="parent" />
 
         <android.widget.TextView
             android:id="@+id/school_url"
-            android:layout_width="240dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:text="@{meaningsItemViewModel.schoolUrl}"
+            app:text_font="@{uiViewModel.meaningsItemTextTypeface}"
+            app:text_color="@{uiViewModel.meaningsItemTextColor}"
+            app:text_size="@{safeUnbox(uiViewModel.meaningsItemTextSize)}"
+            app:layout_marginLeft="@{safeUnbox(uiViewModel.standardLeftAndRightMargin)}"
+            app:layout_constraintTop_toBottomOf="@+id/city_state_zip"
+            app:layout_constraintBottom_toTopOf="@+id/admission_rate"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <android.widget.TextView
+            android:id="@+id/admission_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{meaningsItemViewModel.admissionRate}"
+            app:text_font="@{uiViewModel.wordItemTextTypeface}"
+            app:text_color="@{uiViewModel.wordItemTextColor}"
+            app:text_size="@{safeUnbox(uiViewModel.wordItemTextSize)}"
+            app:layout_marginLeft="@{safeUnbox(uiViewModel.standardLeftAndRightMargin)}"
+            app:layout_constraintTop_toBottomOf="@+id/school_url"
+            app:layout_constraintBottom_toTopOf="@+id/percent_computer_degrees"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <android.widget.TextView
+            android:id="@+id/percent_computer_degrees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{meaningsItemViewModel.percentComputerDegrees}"
+            app:text_font="@{uiViewModel.wordItemTextTypeface}"
+            app:text_color="@{uiViewModel.wordItemTextColor}"
+            app:text_size="@{safeUnbox(uiViewModel.wordItemTextSize)}"
+            app:layout_marginLeft="@{safeUnbox(uiViewModel.standardLeftAndRightMargin)}"
+            app:layout_constraintTop_toBottomOf="@+id/admission_rate"
+            app:layout_constraintBottom_toTopOf="@+id/sat_scores"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <android.widget.TextView
+            android:id="@+id/sat_scores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{meaningsItemViewModel.satScores}"
             app:text_font="@{uiViewModel.meaningsItemTextTypeface}"
             app:text_color="@{uiViewModel.definitionItemTextColor}"
             app:text_size="@{safeUnbox(uiViewModel.meaningsItemTextSize)}"
             app:layout_marginLeft="@{safeUnbox(uiViewModel.standardLeftAndRightMargin)}"
-            app:layout_constraintTop_toBottomOf="@+id/zip"
+            app:layout_constraintTop_toBottomOf="@+id/percent_computer_degrees"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent" />
 

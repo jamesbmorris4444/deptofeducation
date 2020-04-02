@@ -11,7 +11,7 @@
 
         <variable
             name="meaningsListViewModel"
-            type="com.fullsekurity.deptofeducation.meanings.SchoolsDataListViewModel" />
+            type="com.fullsekurity.deptofeducation.schools.SchoolsDataListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

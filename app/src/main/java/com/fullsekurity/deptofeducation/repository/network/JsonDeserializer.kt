@@ -23,7 +23,7 @@ internal class SchoolsDataJsonDeserializer : JsonDeserializer<Any> {
         var meanings: ArrayList<SchoolsData>? = null
         try {
             val jsonObject = json.asJsonObject
-            val meaningsJsonArray = jsonObject.getAsJsonArray(Constants.URBANDICT_ARRAY_DATA_TAG)
+            val meaningsJsonArray = jsonObject.getAsJsonArray(Constants.EDUC_DEPT_ARRAY_DATA_TAG)
             meanings = ArrayList(meaningsJsonArray.size())
             for (i in 0 until meaningsJsonArray.size()) {
                 val dematerialized = context.deserialize<Any>(meaningsJsonArray.get(i), SchoolsData::class.java)

@@ -1,4 +1,4 @@
-package com.fullsekurity.deptofeducation.meanings
+package com.fullsekurity.deptofeducation.schools
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource

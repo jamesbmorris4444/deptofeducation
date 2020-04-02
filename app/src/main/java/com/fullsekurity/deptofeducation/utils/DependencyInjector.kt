@@ -2,9 +2,9 @@ package com.fullsekurity.deptofeducation.utils
 
 import androidx.lifecycle.ViewModelProvider
 import com.fullsekurity.deptofeducation.activity.MainActivity
-import com.fullsekurity.deptofeducation.meanings.SchoolsDataAdapter
-import com.fullsekurity.deptofeducation.meanings.SchoolsDataFragment
-import com.fullsekurity.deptofeducation.meanings.SchoolsDataListViewModel
+import com.fullsekurity.deptofeducation.schools.SchoolsDataAdapter
+import com.fullsekurity.deptofeducation.schools.SchoolsDataFragment
+import com.fullsekurity.deptofeducation.schools.SchoolsDataListViewModel
 import com.fullsekurity.deptofeducation.modal.StandardModal
 import com.fullsekurity.deptofeducation.repository.Repository
 import com.fullsekurity.deptofeducation.ui.UIViewModel

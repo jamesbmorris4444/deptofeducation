@@ -1,4 +1,4 @@
-package com.fullsekurity.deptofeducation.meanings
+package com.fullsekurity.deptofeducation.schools
 
 import android.view.View
 import androidx.paging.PageKeyedDataSource
@@ -28,7 +28,7 @@ class SchoolsDataDataSource(private val callbacks: Callbacks) : PageKeyedDataSou
             progressBar.visibility = View.VISIBLE
         }
         var disposable: Disposable? = null
-        disposable = apiInterface.getSchoolsData(1, Constants.NEWSFEED_API_KEY)
+        disposable = apiInterface.getSchoolsData(1, Constants.EDUC_DEPT_API_KEY)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .timeout(60L, TimeUnit.SECONDS)
@@ -43,7 +43,7 @@ class SchoolsDataDataSource(private val callbacks: Callbacks) : PageKeyedDataSou
                 disposable?.dispose()
                 val progressBar = callbacks.fetchActivity().getMainProgressBar()
                 progressBar.visibility = View.GONE
-                getUrbanDictionarySchoolsDataFailure(callbacks.fetchActivity(),"getUrbanDictionarySchoolsData", throwable)
+                getSchoolsDataFailure(callbacks.fetchActivity(),"getSchoolsData", throwable)
             })
     }
 
@@ -55,7 +55,7 @@ class SchoolsDataDataSource(private val callbacks: Callbacks) : PageKeyedDataSou
             progressBar.visibility = View.VISIBLE
         }
         var disposable: Disposable? = null
-        disposable = apiInterface.getSchoolsData(params.key, Constants.NEWSFEED_API_KEY)
+        disposable = apiInterface.getSchoolsData(params.key, Constants.EDUC_DEPT_API_KEY)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .timeout(60L, TimeUnit.SECONDS)
@@ -70,17 +70,17 @@ class SchoolsDataDataSource(private val callbacks: Callbacks) : PageKeyedDataSou
                 disposable?.dispose()
                 val progressBar = callbacks.fetchActivity().getMainProgressBar()
                 progressBar.visibility = View.GONE
-                getUrbanDictionarySchoolsDataFailure(callbacks.fetchActivity(),"getUrbanDictionarySchoolsData", throwable)
+                getSchoolsDataFailure(callbacks.fetchActivity(),"getSchoolsData", throwable)
             })
     }
 
-    private fun getUrbanDictionarySchoolsDataFailure(activity: MainActivity, method: String, throwable: Throwable) {
+    private fun getSchoolsDataFailure(activity: MainActivity, method: String, throwable: Throwable) {
         LogUtils.E(LogUtils.FilterTags.withTags(LogUtils.TagFilter.EXC), method, throwable)
         StandardModal(
             activity,
             modalType = StandardModal.ModalType.STANDARD,
-            titleText = activity.getString(R.string.std_modal_urban_dictionary_failure_title),
-            bodyText = activity.getString(R.string.std_modal_urban_dictionary_failure_body),
+            titleText = activity.getString(R.string.std_modal_dept_of_education_failure_title),
+            bodyText = activity.getString(R.string.std_modal_dept_of_education_failure_body),
             positiveText = activity.getString(R.string.std_modal_ok),
             dialogFinishedListener = object : StandardModal.DialogFinishedListener {
                 override fun onPositive(string: String) { }

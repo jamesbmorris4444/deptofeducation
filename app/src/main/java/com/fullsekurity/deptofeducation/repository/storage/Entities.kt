@@ -16,7 +16,9 @@ data class TopLevelResponse(
 @Parcelize
 data class SchoolField(
 
-    @SerializedName(value = "school") var school: SchoolsData
+    @SerializedName(value = "school") var school: SchoolsData,
+    @SerializedName(value = "admissions") var admissions: AdmissionsData,
+    @SerializedName(value = "academics") var academics: AcademicsData
 
 ) : Parcelable
 
@@ -37,6 +39,42 @@ data class SchoolsData(
     @SerializedName(value = "state") var state: String,
     @SerializedName(value = "zip") var zip: String,
     @SerializedName(value = "school_url") var schoolUrl: String
+
+) : Parcelable
+
+@Parcelize
+data class AdmissionsData(
+
+    @SerializedName(value = "admission_rate") var admissionsRate: AdmissionsRate,
+    @SerializedName(value = "sat_scores") var satScores: SatScores
+
+) : Parcelable
+
+@Parcelize
+data class AcademicsData(
+
+    @SerializedName(value = "program_percentage") var percentComputerDegrees: PercentComputerDegrees
+
+) : Parcelable
+
+@Parcelize
+data class AdmissionsRate(
+
+    @SerializedName(value = "by_ope_id") var admissionsRate: Float
+
+) : Parcelable
+
+@Parcelize
+data class SatScores(
+
+    @SerializedName(value = "by_ope_id") var satScores: Float
+
+) : Parcelable
+
+@Parcelize
+data class PercentComputerDegrees(
+
+    @SerializedName(value = "computer") var percentComputerDegrees: Float
 
 ) : Parcelable
 

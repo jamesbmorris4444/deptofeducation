@@ -23,8 +23,8 @@ import com.airbnb.lottie.LottieDrawable
 import com.fullsekurity.deptofeducation.R
 import com.fullsekurity.deptofeducation.databinding.ActivityMainBinding
 import com.fullsekurity.deptofeducation.logger.LogUtils
-import com.fullsekurity.deptofeducation.meanings.SchoolsDataFragment
-import com.fullsekurity.deptofeducation.meanings.SchoolsDataListViewModel
+import com.fullsekurity.deptofeducation.schools.SchoolsDataFragment
+import com.fullsekurity.deptofeducation.schools.SchoolsDataListViewModel
 import com.fullsekurity.deptofeducation.repository.Repository
 import com.fullsekurity.deptofeducation.services.LongRunningService
 import com.fullsekurity.deptofeducation.services.ServiceCallbacks

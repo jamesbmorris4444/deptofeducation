@@ -2,8 +2,8 @@ package com.fullsekurity.deptofeducation.repository.network
 
 import com.fullsekurity.deptofeducation.logger.LogUtils
 import com.fullsekurity.deptofeducation.logger.LogUtils.TagFilter.API
-import com.fullsekurity.deptofeducation.utils.Constants.URBANDICT_BASE_URL
-import com.fullsekurity.deptofeducation.utils.Constants.URBANDICT_LIST_CLASS_TYPE
+import com.fullsekurity.deptofeducation.utils.Constants.SCHOOLS_DATA_BASE_URL
+import com.fullsekurity.deptofeducation.utils.Constants.EDUC_DEPT_LIST_CLASS_TYPE
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -24,7 +24,7 @@ object APIClient {
                 .addInterceptor(interceptor)
                 .build()
             val gson = GsonBuilder()
-                .registerTypeAdapter(URBANDICT_LIST_CLASS_TYPE,
+                .registerTypeAdapter(EDUC_DEPT_LIST_CLASS_TYPE,
                     SchoolsDataJsonDeserializer()
                 )
                 .create()
@@ -32,7 +32,7 @@ object APIClient {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(client)
-                .baseUrl(URBANDICT_BASE_URL)
+                .baseUrl(SCHOOLS_DATA_BASE_URL)
             return builder.build().create(APIInterface::class.java)
         }
 

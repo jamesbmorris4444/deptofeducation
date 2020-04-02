@@ -8,7 +8,6 @@ import com.fullsekurity.deptofeducation.modal.StandardModal
 import com.fullsekurity.deptofeducation.repository.network.APIClient
 import com.fullsekurity.deptofeducation.repository.network.APIInterface
 import com.fullsekurity.deptofeducation.repository.storage.SchoolField
-import com.fullsekurity.deptofeducation.repository.storage.SchoolsData
 import com.fullsekurity.deptofeducation.utils.Constants
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -19,9 +18,9 @@ class Repository(private val callbacks: Callbacks) {
 
     private val meaningsService: APIInterface = APIClient.client
 
-    fun getUrbanDictionarySchoolsData(country: String, showSchoolsData: (meaningsList: List<SchoolField>?) -> Unit) {
+    fun getSchoolsData(country: String, showSchoolsData: (meaningsList: List<SchoolField>?) -> Unit) {
         var disposable: Disposable? = null
-        disposable = meaningsService.getSchoolsData(100, Constants.NEWSFEED_API_KEY)
+        disposable = meaningsService.getSchoolsData(100, Constants.EDUC_DEPT_API_KEY)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .timeout(15L, TimeUnit.SECONDS)
@@ -32,17 +31,17 @@ class Repository(private val callbacks: Callbacks) {
             { throwable ->
                 disposable?.dispose()
                 showSchoolsData(null)
-                getUrbanDictionarySchoolsDataFailure(callbacks.fetchActivity(),"getUrbanDictionarySchoolsData", throwable)
+                getSchoolsDataFailure(callbacks.fetchActivity(),"getSchoolsData", throwable)
             })
     }
 
-    private fun getUrbanDictionarySchoolsDataFailure(activity: MainActivity, method: String, throwable: Throwable) {
+    private fun getSchoolsDataFailure(activity: MainActivity, method: String, throwable: Throwable) {
         LogUtils.E(LogUtils.FilterTags.withTags(LogUtils.TagFilter.EXC), method, throwable)
         StandardModal(
             activity,
             modalType = StandardModal.ModalType.STANDARD,
-            titleText = activity.getString(R.string.std_modal_urban_dictionary_failure_title),
-            bodyText = activity.getString(R.string.std_modal_urban_dictionary_failure_body),
+            titleText = activity.getString(R.string.std_modal_dept_of_education_failure_title),
+            bodyText = activity.getString(R.string.std_modal_dept_of_education_failure_body),
             positiveText = activity.getString(R.string.std_modal_ok),
             dialogFinishedListener = object : StandardModal.DialogFinishedListener {
                 override fun onPositive(string: String) { }
