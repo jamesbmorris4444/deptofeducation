@@ -19,7 +19,7 @@ class SchoolsDataItemViewModel(private val callbacks: Callbacks) : RecyclerViewI
 
     override fun setItem(item: SchoolField) {
         name.set(item.school.name)
-        LogUtils.D(APIClient::class.java.simpleName, LogUtils.FilterTags.withTags(LogUtils.TagFilter.API), String.format("****************************=%s", item.school.city))
+        LogUtils.D("JIMX", LogUtils.FilterTags.withTags(LogUtils.TagFilter.API), String.format("****************************=%s", item.school.city))
         city.set(item.school.city)
         state.set(item.school.state)
         zip.set(item.school.zip)

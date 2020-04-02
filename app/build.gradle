@@ -85,7 +85,7 @@ dependencies {
     implementation "com.airbnb.android:lottie:3.3.1"
 
     // Paging
-    implementation "android.arch.paging:runtime:1.0.1"
+    implementation "androidx.paging:paging-runtime-ktx:2.1.2"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'

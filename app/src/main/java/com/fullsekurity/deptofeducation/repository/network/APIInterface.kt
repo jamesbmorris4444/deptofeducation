@@ -12,10 +12,10 @@ interface APIInterface {
     fun getSchoolsData(
         @Query(Constants.PAGE_NUMBER) page: Int,
         @Query(Constants.NEWSFEED_KEY) key: String
-    ): Flowable<SchoolsResponse>
+    ): Flowable<TopLevelResponse>
 }
 
-data class SchoolsResponse (
+data class TopLevelResponse (
     val metaData: MetaData,
     val results: List<SchoolField>
 )

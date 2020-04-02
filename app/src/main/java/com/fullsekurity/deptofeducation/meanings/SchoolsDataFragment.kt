@@ -8,11 +8,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.paging.PagedList
 import com.fullsekurity.deptofeducation.R
 import com.fullsekurity.deptofeducation.activity.Callbacks
 import com.fullsekurity.deptofeducation.activity.MainActivity
 import com.fullsekurity.deptofeducation.databinding.SchoolsDataFragmentBinding
+import com.fullsekurity.deptofeducation.repository.storage.SchoolField
 import com.fullsekurity.deptofeducation.ui.UIViewModel
 import com.fullsekurity.deptofeducation.utils.Constants
 import com.fullsekurity.deptofeducation.utils.DaggerViewModelDependencyInjector
@@ -47,6 +50,9 @@ class SchoolsDataFragment : Fragment(), Callbacks {
         super.onResume()
         (activity as MainActivity).toolbar.title = Constants.URBANDICT_TITLE
         meaningsListViewModel.initialize(binding.root)
+        meaningsListViewModel.schoolsLiveData?.observe(this, Observer<PagedList<SchoolField>> { pagedList ->
+            meaningsListViewModel.adapter.submitList(pagedList)
+        })
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
