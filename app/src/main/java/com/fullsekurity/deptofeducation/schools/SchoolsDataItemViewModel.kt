@@ -18,11 +18,11 @@ class SchoolsDataItemViewModel(private val callbacks: Callbacks) : RecyclerViewI
         name.set(item.school.name)
         cityStateZip.set("${item.school.city}, ${item.school.state} ${item.school.zip}")
         schoolUrl.set(item.school.schoolUrl)
-        val admissionRateString = String.format("Admission Rate: %d%%", item.admissions.admissionsRate.admissionsRate.toInt())
+        val admissionRateString = String.format("Admission Rate: %.2f%%", item.schoolYear.admissions.admissionsRate.admissionsRate * 100)
         admissionRate.set(admissionRateString)
-        val satScoresString = String.format("Average SAT Score: %d", item.admissions.satScores.satScores.toInt())
+        val satScoresString = String.format("Average SAT Score: %d", item.schoolYear.admissions.satScores.average.satScores.toInt())
         satScores.set(satScoresString)
-        val percentComputerDegreesString = String.format("Computer-Related Degrees: %d%%", item.academics.percentComputerDegrees.percentComputerDegrees.toInt())
+        val percentComputerDegreesString = String.format("Computer-Related Degrees: %.2f%%", item.schoolYear.academics.percentComputerDegrees.percentComputerDegrees * 100f)
         percentComputerDegrees.set(percentComputerDegreesString)
     }
 

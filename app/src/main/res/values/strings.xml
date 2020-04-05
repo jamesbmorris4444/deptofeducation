@@ -17,5 +17,6 @@
     <!-- miscellaneous -->
     <string name="search_no_elements">No Education Department feeds found</string>
     <string name="meanings_hint_text">Enter Search Term</string>
+    <string name="year_2018_data">2018 Data:</string>
 
 </resources>

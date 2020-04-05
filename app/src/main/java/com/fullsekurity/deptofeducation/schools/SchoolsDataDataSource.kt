@@ -36,7 +36,7 @@ class SchoolsDataDataSource(private val callbacks: Callbacks) : PageKeyedDataSou
                 disposable?.dispose()
                 val progressBar = callbacks.fetchActivity().getMainProgressBar()
                 progressBar.visibility = View.GONE
-                callback.onResult(meaningsResponse.results, null, 2)
+                callback.onResult(meaningsResponse.results.sortedBy { schoolField -> schoolField.school.name }, null, 2)
                 totalRecords = meaningsResponse.metaData.total
             },
             { throwable ->
@@ -64,7 +64,7 @@ class SchoolsDataDataSource(private val callbacks: Callbacks) : PageKeyedDataSou
                 val progressBar = callbacks.fetchActivity().getMainProgressBar()
                 progressBar.visibility = View.GONE
                 val nextKey: Int? = if (params.key == totalRecords) null else params.key + 1
-                callback.onResult(meaningsResponse.results, nextKey)
+                callback.onResult(meaningsResponse.results.sortedBy { schoolField -> schoolField.school.name }, nextKey)
             },
             { throwable ->
                 disposable?.dispose()

@@ -25,7 +25,7 @@ import javax.inject.Inject
 
 class SchoolsDataFragment : Fragment(), Callbacks {
 
-    private lateinit var meaningsListViewModel: SchoolsDataListViewModel
+    private lateinit var schoolsDataListViewModel: SchoolsDataListViewModel
     private lateinit var binding: SchoolsDataFragmentBinding
     private lateinit var mainActivity: MainActivity
 
@@ -49,17 +49,17 @@ class SchoolsDataFragment : Fragment(), Callbacks {
     override fun onResume() {
         super.onResume()
         (activity as MainActivity).toolbar.title = Constants.SCHOOLS_DATA_TITLE
-        meaningsListViewModel.initialize(binding.root)
-        meaningsListViewModel.schoolsLiveData?.observe(this, Observer<PagedList<SchoolField>> { pagedList ->
-            meaningsListViewModel.adapter.submitList(pagedList)
+        schoolsDataListViewModel.initialize(binding.root)
+        schoolsDataListViewModel.schoolsLiveData?.observe(this, Observer<PagedList<SchoolField>> { pagedList ->
+            schoolsDataListViewModel.adapter.submitList(pagedList)
         })
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate<ViewDataBinding>(inflater, R.layout.schools_data_fragment, container, false) as SchoolsDataFragmentBinding
         binding.lifecycleOwner = this
-        meaningsListViewModel = ViewModelProvider(this, SchoolsDataListViewModelFactory(this)).get(SchoolsDataListViewModel::class.java)
-        binding.meaningsListViewModel = meaningsListViewModel
+        schoolsDataListViewModel = ViewModelProvider(this, SchoolsDataListViewModelFactory(this)).get(SchoolsDataListViewModel::class.java)
+        binding.meaningsListViewModel = schoolsDataListViewModel
         binding.uiViewModel = uiViewModel
         uiViewModel.currentTheme = (activity as MainActivity).currentTheme
         return binding.root
@@ -88,7 +88,7 @@ class SchoolsDataFragment : Fragment(), Callbacks {
     }
 
     override fun fetchmeaningsListViewModel() : SchoolsDataListViewModel? {
-        return meaningsListViewModel
+        return schoolsDataListViewModel
     }
 
 }

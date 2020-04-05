@@ -17,6 +17,14 @@ data class TopLevelResponse(
 data class SchoolField(
 
     @SerializedName(value = "school") var school: SchoolsData,
+    @SerializedName(value = "2018") var schoolYear: SchoolYear,
+    @SerializedName(value = "id") var id: Int
+
+) : Parcelable
+
+@Parcelize
+data class SchoolYear(
+
     @SerializedName(value = "admissions") var admissions: AdmissionsData,
     @SerializedName(value = "academics") var academics: AcademicsData
 
@@ -67,6 +75,13 @@ data class AdmissionsRate(
 @Parcelize
 data class SatScores(
 
+    @SerializedName(value = "average") var average: SatAverage
+
+) : Parcelable
+
+@Parcelize
+data class SatAverage(
+
     @SerializedName(value = "by_ope_id") var satScores: Float
 
 ) : Parcelable
@@ -80,7 +95,7 @@ data class PercentComputerDegrees(
 
 var DIFF_CALLBACK: DiffUtil.ItemCallback<SchoolField> = object : DiffUtil.ItemCallback<SchoolField>() {
     override fun areItemsTheSame(oldItem: SchoolField, newItem: SchoolField): Boolean {
-        return oldItem.school.name == newItem.school.name
+        return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(oldItem: SchoolField, newItem: SchoolField): Boolean {
