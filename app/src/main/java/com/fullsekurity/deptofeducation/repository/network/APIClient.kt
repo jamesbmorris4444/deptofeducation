@@ -2,8 +2,8 @@ package com.fullsekurity.deptofeducation.repository.network
 
 import com.fullsekurity.deptofeducation.logger.LogUtils
 import com.fullsekurity.deptofeducation.logger.LogUtils.TagFilter.API
-import com.fullsekurity.deptofeducation.utils.Constants.SCHOOLS_DATA_BASE_URL
 import com.fullsekurity.deptofeducation.utils.Constants.EDUC_DEPT_LIST_CLASS_TYPE
+import com.fullsekurity.deptofeducation.utils.Constants.SCHOOLS_DATA_BASE_URL
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -19,7 +19,7 @@ object APIClient {
                     LogUtils.D(APIClient::class.java.simpleName, LogUtils.FilterTags.withTags(API), String.format("okHttp logging interceptor=%s", message))
                 }
             })
-            interceptor.level = HttpLoggingInterceptor.Level.BASIC  // BASIC or BODY
+            interceptor.level = HttpLoggingInterceptor.Level.BODY  // BASIC or BODY
             val client = OkHttpClient.Builder()
                 .addInterceptor(interceptor)
                 .build()

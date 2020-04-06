@@ -1,7 +1,7 @@
 package com.fullsekurity.deptofeducation.repository.network
 
 import com.fullsekurity.deptofeducation.logger.LogUtils
-import com.fullsekurity.deptofeducation.repository.storage.SchoolsData
+import com.fullsekurity.deptofeducation.repository.storage.SchoolField
 import com.fullsekurity.deptofeducation.utils.Constants
 import com.google.gson.JsonDeserializationContext
 import com.google.gson.JsonDeserializer
@@ -20,14 +20,14 @@ internal class SchoolsDataJsonDeserializer : JsonDeserializer<Any> {
         // This code stopped executing when I added the line
         //     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         // to APIClient, which was added for the purpose of using RxJava calls for Retrofit and OkHttp, instead of callbacks
-        var meanings: ArrayList<SchoolsData>? = null
+        var meanings: ArrayList<SchoolField>? = null
         try {
             val jsonObject = json.asJsonObject
             val meaningsJsonArray = jsonObject.getAsJsonArray(Constants.EDUC_DEPT_ARRAY_DATA_TAG)
             meanings = ArrayList(meaningsJsonArray.size())
             for (i in 0 until meaningsJsonArray.size()) {
-                val dematerialized = context.deserialize<Any>(meaningsJsonArray.get(i), SchoolsData::class.java)
-                meanings.add(dematerialized as SchoolsData)
+                val dematerialized = context.deserialize<Any>(meaningsJsonArray.get(i), SchoolField::class.java)
+                meanings.add(dematerialized as SchoolField)
             }
         } catch (e: JsonParseException) {
             LogUtils.E(LogUtils.FilterTags.withTags(LogUtils.TagFilter.EXC), e)

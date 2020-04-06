@@ -28,7 +28,7 @@ class SchoolsDataDataSource(private val callbacks: Callbacks) : PageKeyedDataSou
             progressBar.visibility = View.VISIBLE
         }
         var disposable: Disposable? = null
-        disposable = apiInterface.getSchoolsData(1, Constants.EDUC_DEPT_API_KEY)
+        disposable = apiInterface.getSchoolsData(1, Constants.EDUC_DEPT_FIELDS, Constants.EDUC_DEPT_API_KEY)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .timeout(60L, TimeUnit.SECONDS)
@@ -55,7 +55,7 @@ class SchoolsDataDataSource(private val callbacks: Callbacks) : PageKeyedDataSou
             progressBar.visibility = View.VISIBLE
         }
         var disposable: Disposable? = null
-        disposable = apiInterface.getSchoolsData(params.key, Constants.EDUC_DEPT_API_KEY)
+        disposable = apiInterface.getSchoolsData(params.key, Constants.EDUC_DEPT_FIELDS, Constants.EDUC_DEPT_API_KEY)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .timeout(60L, TimeUnit.SECONDS)

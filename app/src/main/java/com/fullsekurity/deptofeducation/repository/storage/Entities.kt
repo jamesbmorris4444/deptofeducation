@@ -16,17 +16,15 @@ data class TopLevelResponse(
 @Parcelize
 data class SchoolField(
 
-    @SerializedName(value = "school") var school: SchoolsData,
-    @SerializedName(value = "2018") var schoolYear: SchoolYear,
+    @SerializedName(value = "school.name") var name: String,
+    @SerializedName(value = "school.city") var city: String,
+    @SerializedName(value = "school.state") var state: String,
+    @SerializedName(value = "school.zip") var zip: String,
+    @SerializedName(value = "school.school_url") var schoolUrl: String,
+    @SerializedName(value = "2018.admissions.sat_scores.average.by_ope_id") var satScores: Float,
+    @SerializedName(value = "2018.academics.program_percentage.computer") var percentComputerDegrees: Float,
+    @SerializedName(value = "2018.admissions.admission_rate.by_ope_id") var admissionsRate: Float,
     @SerializedName(value = "id") var id: Int
-
-) : Parcelable
-
-@Parcelize
-data class SchoolYear(
-
-    @SerializedName(value = "admissions") var admissions: AdmissionsData,
-    @SerializedName(value = "academics") var academics: AcademicsData
 
 ) : Parcelable
 
@@ -36,60 +34,6 @@ data class MetaData(
     @SerializedName(value = "total") var total:Int,
     @SerializedName(value = "page") var page:Int,
     @SerializedName(value = "per_page") var perPage: Int
-
-) : Parcelable
-
-@Parcelize
-data class SchoolsData(
-
-    @SerializedName(value = "name") var name: String,
-    @SerializedName(value = "city") var city: String,
-    @SerializedName(value = "state") var state: String,
-    @SerializedName(value = "zip") var zip: String,
-    @SerializedName(value = "school_url") var schoolUrl: String
-
-) : Parcelable
-
-@Parcelize
-data class AdmissionsData(
-
-    @SerializedName(value = "admission_rate") var admissionsRate: AdmissionsRate,
-    @SerializedName(value = "sat_scores") var satScores: SatScores
-
-) : Parcelable
-
-@Parcelize
-data class AcademicsData(
-
-    @SerializedName(value = "program_percentage") var percentComputerDegrees: PercentComputerDegrees
-
-) : Parcelable
-
-@Parcelize
-data class AdmissionsRate(
-
-    @SerializedName(value = "by_ope_id") var admissionsRate: Float
-
-) : Parcelable
-
-@Parcelize
-data class SatScores(
-
-    @SerializedName(value = "average") var average: SatAverage
-
-) : Parcelable
-
-@Parcelize
-data class SatAverage(
-
-    @SerializedName(value = "by_ope_id") var satScores: Float
-
-) : Parcelable
-
-@Parcelize
-data class PercentComputerDegrees(
-
-    @SerializedName(value = "computer") var percentComputerDegrees: Float
 
 ) : Parcelable
 

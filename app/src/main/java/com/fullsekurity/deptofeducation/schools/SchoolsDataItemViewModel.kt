@@ -15,14 +15,14 @@ class SchoolsDataItemViewModel(private val callbacks: Callbacks) : RecyclerViewI
     val percentComputerDegrees: ObservableField<String> = ObservableField("")
 
     override fun setItem(item: SchoolField) {
-        name.set(item.school.name)
-        cityStateZip.set("${item.school.city}, ${item.school.state} ${item.school.zip}")
-        schoolUrl.set(item.school.schoolUrl)
-        val admissionRateString = String.format("Admission Rate: %.2f%%", item.schoolYear.admissions.admissionsRate.admissionsRate * 100)
+        name.set(item.name)
+        cityStateZip.set("${item.city}, ${item.state} ${item.zip}")
+        schoolUrl.set(item.schoolUrl)
+        val admissionRateString = String.format("Admission Rate: %.2f%%", item.admissionsRate * 100)
         admissionRate.set(admissionRateString)
-        val satScoresString = String.format("Average SAT Score: %d", item.schoolYear.admissions.satScores.average.satScores.toInt())
+        val satScoresString = String.format("Average SAT Score: %d", item.satScores.toInt())
         satScores.set(satScoresString)
-        val percentComputerDegreesString = String.format("Computer-Related Degrees: %.2f%%", item.schoolYear.academics.percentComputerDegrees.percentComputerDegrees * 100f)
+        val percentComputerDegreesString = String.format("Computer-Related Degrees: %.2f%%", item.percentComputerDegrees * 100f)
         percentComputerDegrees.set(percentComputerDegreesString)
     }
 
