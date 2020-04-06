@@ -12,6 +12,7 @@ object Constants {
     const val EDUC_DEPT_KEY = "api_key"
     const val EDUC_DEPT_FIELDS_KEY = "fields"
     const val EDUC_DEPT_SORT_KEY = "sort"
+    const val EDUC_DEPT_SORT_VALUE = "2018.academics.program_percentage.computer:desc"
     const val EDUC_DEPT_FIELDS = "id,school.name,school.city,school.state,school.zip,school.school_url,2018.admissions.sat_scores.average.by_ope_id,2018.academics.program_percentage.computer,2018.admissions.admission_rate.by_ope_id"
     const val EDUC_DEPT_API_KEY = "a32gPmkzRVFctaponTspoNYYqSYkIrZCcd1dkbgx"
     const val STANDARD_LEFT_AND_RIGHT_MARGIN = 20f
