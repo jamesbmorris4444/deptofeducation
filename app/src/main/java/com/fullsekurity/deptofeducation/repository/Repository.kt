@@ -23,7 +23,7 @@ class Repository(private val callbacks: Callbacks) {
         disposable = meaningsService.getSchoolsData(100, Constants.EDUC_DEPT_API_KEY)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
-            .timeout(15L, TimeUnit.SECONDS)
+            .timeout(45L, TimeUnit.SECONDS)
             .subscribe ({ meaningsResponse ->
                 disposable?.dispose()
                 showSchoolsData(meaningsResponse.results)
