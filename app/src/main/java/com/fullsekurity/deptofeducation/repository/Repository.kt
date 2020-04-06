@@ -20,7 +20,7 @@ class Repository(private val callbacks: Callbacks) {
 
     fun getSchoolsData(country: String, showSchoolsData: (meaningsList: List<SchoolField>?) -> Unit) {
         var disposable: Disposable? = null
-        disposable = meaningsService.getSchoolsData(100, Constants.EDUC_DEPT_FIELDS, Constants.EDUC_DEPT_API_KEY)
+        disposable = meaningsService.getSchoolsData(100, "school.name", Constants.EDUC_DEPT_FIELDS, Constants.EDUC_DEPT_API_KEY)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .timeout(45L, TimeUnit.SECONDS)

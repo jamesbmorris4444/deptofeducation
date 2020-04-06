@@ -10,6 +10,7 @@ interface APIInterface {
     @GET("schools")
     fun getSchoolsData(
         @Query(Constants.PAGE_NUMBER) page: Int,
+        @Query(Constants.EDUC_DEPT_SORT_KEY) sort: String,
         @Query(Constants.EDUC_DEPT_FIELDS_KEY) fields: String,
         @Query(Constants.EDUC_DEPT_KEY) key: String
     ): Flowable<TopLevelResponse>
